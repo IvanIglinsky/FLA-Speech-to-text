@@ -1,0 +1,26 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+#root {
+
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+.transcription-container{
+  white-space: nowrap;
+  overflow: hidden;
+}
+.scrolling-text {
+  animation: marquee 10s linear infinite;
+}
+@keyframes marquee {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+

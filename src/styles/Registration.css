@@ -1,0 +1,30 @@
+.registration-container {
+    background-color: black;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.registration-form {
+    width: 50%;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: black;
+    color: white;
+}
+
+.text-white {
+    color: white;
+}
+.invalid {
+    background-color: var(--mantine-color-red-light);
+}
+
+.icon {
+    color: light-dark(var(--mantine-color-red-6), var(--mantine-color-red-7));
+}
+.buttonReg{
+    margin-top: 10px;
+}
