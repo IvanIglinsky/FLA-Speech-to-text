@@ -10,7 +10,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     const login = () => {
-
         setIsAuthenticated(true);
     };
 

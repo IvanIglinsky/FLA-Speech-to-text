@@ -1,18 +1,25 @@
-import { useState } from 'react';
+import {useEffect, useState} from 'react';
 import axios from 'axios';
 import {useNavigate} from "react-router-dom";
 import {Button, Center, PasswordInput, rem, Text, TextInput, Tooltip} from "@mantine/core";
 import {IconInfoCircle} from "@tabler/icons-react";
+import {useAuth} from "./auth-context.tsx";
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
     const [opened, setOpened] = useState(false);
+    const auth=useAuth();
+    useEffect(() => {
+        const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
 
+        if (isAuthenticated) {
+            auth.login();
+        }
+    }, []);
     const valid = password.trim().length >= 6;
     const handleRegistration = async () => {
-        console.log(password, email)
         try {
             const formData = new FormData();
             formData.append('username',email);
@@ -21,8 +28,13 @@ const Login = () => {
                 withCredentials: true,
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
-            console.log(response.data);
-            navigate('/recorder');
+            if (response.status === 200) {
+                auth.login();
+                localStorage.setItem('isAuthenticated', 'true');
+                navigate('/recorder');
+            } else {
+                console.error('Login error:', response.statusText);
+            }
         } catch (error) {
             console.error('Login error:', error);
         }

@@ -4,7 +4,8 @@ import App from './App';
 import { AuthProvider } from './pages/auth-context.tsx';
 import {createRoot} from "react-dom/client";
 import {MantineProvider} from "@mantine/core";
-
+import "./App.css"
+import "./index.css"
 
 const rootElement = document.getElementById('root');
 

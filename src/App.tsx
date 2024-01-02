@@ -2,9 +2,10 @@
 import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
 import Register from './pages/Register.tsx';
 import Login from './pages/Login.tsx';
-import Recorder from './Component/Recorder.tsx';
+import Recorder from './pages/Recorder.tsx';
 import { useAuth } from './pages/auth-context.tsx';
-
+import "./App.css"
+import "./index.css"
 function App() {
     const { isAuthenticated } = useAuth();
 
